@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "537692112506",
+    "project_id": "onlineexamjugaad",
+    "storage_bucket": "onlineexamjugaad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:537692112506:android:2cb05d600504c59f491dc3",
+        "android_client_info": {
+          "package_name": "com.ismail.creatvt.onlineexamjugaad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "537692112506-3r7rv2m9kab530mr1ec0a0l6k4p2ni9b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ismail.creatvt.onlineexamjugaad",
+            "certificate_hash": "65ccdc77f6456bcd9ebe4f38d73ca02c80295b5d"
+          }
+        },
+        {
+          "client_id": "537692112506-u0i3n01oanej68lpcev41nubasnpf181.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAb2bJuVYU7D3TDwsjGMW5HoqISDLiwYXw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "537692112506-u0i3n01oanej68lpcev41nubasnpf181.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
