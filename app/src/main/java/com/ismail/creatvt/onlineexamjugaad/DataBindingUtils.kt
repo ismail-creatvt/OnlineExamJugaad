@@ -14,7 +14,7 @@ fun RecyclerView.setSpanAdapter(lookup: GridLayoutManager.SpanSizeLookup){
 }
 
 @BindingAdapter("loadUrl")
-fun ImageView.loadUrl(url: String){
+fun ImageView.loadUrl(url: String?){
     Glide.with(this)
         .load(url)
         .into(this)

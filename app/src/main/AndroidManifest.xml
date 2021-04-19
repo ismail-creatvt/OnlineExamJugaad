@@ -3,6 +3,7 @@
     package="com.ismail.creatvt.onlineexamjugaad">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:allowBackup="true"
@@ -10,11 +11,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.OnlineExamJugaad">
-        <activity android:name=".QuestionDetailActivity"></activity>
+        android:theme="@style/SplashTheme">
+        <activity android:name=".TakePictureActivity"/>
+        <activity android:name=".QuestionDetailActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".AddQuestionActivity"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".HomeActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
 
@@ -23,7 +28,8 @@
                 <data android:mimeType="image/*" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".HomeActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

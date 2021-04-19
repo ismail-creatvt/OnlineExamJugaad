@@ -9,24 +9,9 @@ import com.google.firebase.ktx.Firebase
 
 class QuestionsViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val completed = MutableLiveData(listOf<Question>())
+    val completed = MutableLiveData(listOf<Question>())
 
-    private val remaining = MutableLiveData(listOf<Question>())
-
-    val questions = completed.merge(remaining){
-        done, rem ->
-        val merged = arrayListOf<Any>()
-        if(!done.isNullOrEmpty()){
-            merged.add(application.getString(R.string.done))
-            merged.addAll(done)
-        }
-
-        if(!rem.isNullOrEmpty()){
-            merged.add(application.getString(R.string.remaining))
-            merged.addAll(rem)
-        }
-        return@merge merged
-    }
+    val remaining = MutableLiveData(listOf<Question>())
 
     init {
         Firebase.firestore.collection(QUESTION_COLLECTION)

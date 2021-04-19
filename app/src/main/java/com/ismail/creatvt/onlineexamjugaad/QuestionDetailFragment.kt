@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -35,19 +36,26 @@ class QuestionDetailFragment : Fragment() {
         val questionId = requireArguments().getString(ID_KEY) ?: ""
 
         Firebase.firestore
+            .collection(QUESTION_COLLECTION)
             .document(questionId)
             .get().addOnSuccessListener {
                 val question = Question(
                     it.id,
-                    (it.data?.get(IMAGE_KEY) as? String?)?:"",
-                    (it.data?.get(ANSWER_KEY) as? String?)?:"?"
+                    (it.data?.get(IMAGE_KEY) as? String?) ?: "",
+                    (it.data?.get(ANSWER_KEY) as? String?) ?: "?"
                 )
                 itemBinding?.question = question
             }
 
         update_button.setOnClickListener {
+            val answer = answer_field.text.toString()
             Firebase.firestore.collection(QUESTION_COLLECTION)
                 .document(questionId)
+                .update(mapOf(ANSWER_KEY to answer)).addOnSuccessListener {
+                    Toast.makeText(requireContext(), "Answer Updated!", Toast.LENGTH_SHORT).show()
+                }.addOnFailureListener {
+                    Toast.makeText(requireContext(), "Update failed!", Toast.LENGTH_SHORT).show()
+                }
         }
     }
 }
